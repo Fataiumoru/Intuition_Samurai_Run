@@ -1,0 +1,144 @@
+:root{
+  --overlay-bg: rgba(0,0,0,0.78);
+  --accent: #4cd964;
+  --text: #fff;
+  --btn-bg: #111;
+}
+
+/* Basic */
+html,body { height:100%; margin:0; padding:0; background:#000; color:var(--text); font-family: Inter, system-ui, Arial, sans-serif; overflow:hidden; }
+
+/* Canvas */
+#gameCanvas {
+  display:block;
+  width:100vw;
+  height:100vh;
+  background: url('background.png') center center / cover no-repeat;
+}
+
+/* Wallet top-left */
+#wallet-container {
+  position:fixed;
+  top:12px;
+  left:12px;
+  z-index:4000;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+#wallet-container button {
+  background:var(--btn-bg);
+  color:var(--text);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:14px;
+}
+#walletAddress { font-size:14px; color:var(--text); padding-left:6px; }
+
+/* Intro overlay */
+.overlay {
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:3000;
+  background:var(--overlay-bg);
+  text-align:center;
+  padding:20px;
+  box-sizing:border-box;
+}
+
+/* Poem */
+.introPoem {
+  max-width:900px;
+  font-size:22px;
+  line-height:1.45;
+  color:var(--text);
+  white-space:pre-line;
+}
+.fade-line {
+  opacity:0;
+  transform: translateY(6px);
+  animation: fadeInLine 800ms ease forwards;
+}
+@keyframes fadeInLine { to { opacity:1; transform:translateY(0); } }
+
+/* Start Game */
+.start-centered {
+  margin-top:50px;
+  padding:12px 24px;
+  font-size:18px;
+  border-radius:10px;
+  background:var(--btn-bg);
+  color:var(--text);
+  border:1px solid rgba(255,255,255,0.08);
+  cursor:pointer;
+}
+
+/* Score */
+#scoreBoard {
+  position:fixed;
+  top:40px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:3500;
+  font-size:28px;
+  font-weight:700;
+  text-shadow:0 2px 10px rgba(0,0,0,0.8);
+  color:var(--text);
+}
+
+/* Game Over UI */
+.game-over-ui {
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:3500;
+  text-align:center;
+}
+.gameOverText {
+  font-size:26px;
+  margin-bottom:30px;
+  white-space:pre-line;
+  opacity:0;
+  transform: translateY(6px);
+}
+.gameOverText.fade-in { animation: gameOverFade 900ms ease forwards; }
+@keyframes gameOverFade { to { opacity:1; transform:translateY(0); } }
+
+/* Try Again button */
+.try-again {
+  font-size:22px;
+  font-weight:bold;
+  padding:14px 28px;
+  border-radius:10px;
+  background:#fff;
+  color:#000;
+  border:2px solid #000;
+  cursor:pointer;
+}
+
+/* TX small bottom-left */
+.txStatus {
+  position:fixed;
+  left:12px;
+  bottom:12px;
+  z-index:4000;
+  font-size:13px;
+  color:var(--accent);
+}
+
+/* Utilities */
+.hidden { display:none !important; }
+
+/* Responsive */
+@media (max-width:480px){
+  .introPoem { font-size:18px; }
+  .start-centered,.try-again { font-size:18px; padding:12px 20px; }
+  #scoreBoard { font-size:20px; top:18px; }
+  #wallet-container button { padding:6px 10px; font-size:13px; }
+}
