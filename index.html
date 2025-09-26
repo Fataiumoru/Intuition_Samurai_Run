@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Samurai Run — Intuition</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Wallet top-left -->
+  <div id="wallet-container">
+    <button id="connectWalletBtn" class="hidden">Connect Wallet</button>
+    <span id="walletAddress" class="hidden"></span>
+  </div>
+
+  <!-- Intro overlay -->
+  <div id="introOverlay" class="overlay">
+    <div>
+      <div id="introPoem" class="introPoem" aria-live="polite"></div>
+      <div id="disclaimerText" class="introPoem hidden"></div>
+      <button id="startGameBtn" class="hidden start-centered">Start Game</button>
+    </div>
+  </div>
+
+  <!-- Game -->
+  <canvas id="gameCanvas" class="hidden"></canvas>
+  <div id="scoreBoard" class="hidden">👁️ Score: 0</div>
+
+  <!-- Game Over UI -->
+  <div id="gameOverUI" class="hidden game-over-ui">
+    <div id="gameOverText" class="gameOverText"></div>
+    <button id="tryAgainBtn" class="hidden try-again">Try Again</button>
+  </div>
+
+  <!-- Transaction status -->
+  <div id="txStatus" class="txStatus"></div>
+
+  <!-- Music -->
+  <audio id="bgMusic" src="bgmusic.mp3" loop></audio>
+
+  <!-- ethers.js -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+
+  <!-- Main -->
+  <script src="script.js"></script>
+</body>
+</html>>
